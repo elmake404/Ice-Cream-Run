@@ -48,7 +48,7 @@ public class SpawnerSpher : MonoBehaviour
             SpherData spher = Instantiate(_spherDataPrefabs, transform.position, Quaternion.identity);
             spher.RowNumber = 1;
             _trafficInspector.AddNewSpher(1, spher);
-            spher.StoodInARow();
+            //spher.StoodInARow();
             spher.ChooseModelColor(_startSpawn.Count[j]);
         }
     }

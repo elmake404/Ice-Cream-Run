@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spher: {fileID: 5012335017280549395}
-  _speedOfMovementInARow: 10
+  _speedOfMovementInARow: 7
 --- !u!114 &9183105408614763882
 MonoBehaviour:
   m_ObjectHideFlags: 0

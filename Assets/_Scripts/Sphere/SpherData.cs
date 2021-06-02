@@ -41,7 +41,7 @@ public class SpherData : MonoBehaviour
     { get { return TrafficInspector.Instance.ContainsRow(this) && TrafficInspector.Instance.RowIsOnTheGround(RowNumber); } }
 
     public void StoodInARow() => _objSpher.transform.SetParent(null);
-    public void OffsetRecordModel() => _objSpher.OffsetRecord();
+    public void OffsetRecordModel(Vector3 position) => _objSpher.OffsetRecord(position);
     private void Start()
     {
         float Size = Radius * 2;

@@ -15,10 +15,11 @@ public class SphereLife : MonoBehaviour
         SpherData spher = TrafficInspector.Instance.GetAdditionalSphere(collision.gameObject);
         if (spher != null)
         {
-            spher.StoodInARow();
+            //spher.StoodInARow();
+            Vector3 position = spher.transform.position;
 
             TrafficInspector.Instance.AddNewSpher(_spherData.RowNumber, spher);
-            spher.OffsetRecordModel();
+            spher.OffsetRecordModel(position);
             TrafficInspector.Instance.RemoveAdditionalSphere(spher);
         }
 
