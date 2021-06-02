@@ -52,7 +52,7 @@ public class TrafficInspector : MonoBehaviour
         int oldRowNumber = spher.RowNumber;
         Transform parent = _rows[rowNumber].GetRowLastPrent();
         spher.transform.SetParent(parent);
-        _rows[rowNumber].AddSpher(_rows[oldRowNumber].GetHigherSpheres(spher));
+        _rows[rowNumber].AddSpher(spher);
     }
     public void AddAdditionalSphere(SpherData sphere)
     => _additionalSphere.Add(sphere);

@@ -9,7 +9,13 @@ public class SphereLife : MonoBehaviour
 
     [SerializeField]
     private SpherData _spherData;
-
+    private void Start()
+    {
+        if (_spherData.RowNumber==-1)
+        {
+            TrafficInspector.Instance.AddAdditionalSphere(_spherData);
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         SpherData spher = TrafficInspector.Instance.GetAdditionalSphere(collision.gameObject);

@@ -17,8 +17,8 @@ public class SpawnerSpher : MonoBehaviour
 {
     [SerializeField]
     private SpawnSpherData _startSpawn;
-    [SerializeField]
-    private List<SpawnAdditionalSpherData> _additionalSphere;
+    //[SerializeField]
+    //private List<SpawnAdditionalSpherData> _additionalSphere;
     [SerializeField]
     private SpherData _spherDataPrefabs;
     [SerializeField]
@@ -32,16 +32,16 @@ public class SpawnerSpher : MonoBehaviour
     }
     private void Spawn()
     {
-        for (int i = 0; i < _additionalSphere.Count; i++)
-        {
-            Vector3 positionSpher = _trafficInspector.GetGlobalPositionRow(_additionalSphere[i].Row, _spherDataPrefabs.Radius);
-            positionSpher.z += _additionalSphere[i].ZPosition;
+        //for (int i = 0; i < _additionalSphere.Count; i++)
+        //{
+        //    Vector3 positionSpher = _trafficInspector.GetGlobalPositionRow(_additionalSphere[i].Row, _spherDataPrefabs.Radius);
+        //    positionSpher.z += _additionalSphere[i].ZPosition;
 
-            SpherData spher = Instantiate(_spherDataPrefabs, positionSpher, Quaternion.identity);
-            spher.RowNumber = _additionalSphere[i].Row;
-            _trafficInspector.AddAdditionalSphere(spher);
-            spher.ChooseModelColor(_additionalSphere[i].NumberColor);
-        }
+        //    SpherData spher = Instantiate(_spherDataPrefabs, positionSpher, Quaternion.identity);
+        //    spher.RowNumber = _additionalSphere[i].Row;
+        //    _trafficInspector.AddAdditionalSphere(spher);
+        //    spher.ChooseModelColor(_additionalSphere[i].NumberColor);
+        //}
 
         for (int j = 0; j < _startSpawn.Count.Length; j++)
         {
@@ -52,20 +52,20 @@ public class SpawnerSpher : MonoBehaviour
             spher.ChooseModelColor(_startSpawn.Count[j]);
         }
     }
-    private void OnDrawGizmos()
-    {
-        if (!_startGame)
-        {
-            Gizmos.color = Color.blue;
-            if (_additionalSphere.Count > 0)
-            {
-                for (int i = 0; i < _additionalSphere.Count; i++)
-                {
-                    Vector3 positionSpher = _trafficInspector.GetGlobalPositionRow(_additionalSphere[i].Row, _spherDataPrefabs.Radius);
-                    positionSpher.z += _additionalSphere[i].ZPosition;
-                    Gizmos.DrawSphere(positionSpher, _spherDataPrefabs.Radius);
-                }
-            }
-        }
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    if (!_startGame)
+    //    {
+    //        Gizmos.color = Color.blue;
+    //        if (_additionalSphere.Count > 0)
+    //        {
+    //            for (int i = 0; i < _additionalSphere.Count; i++)
+    //            {
+    //                Vector3 positionSpher = _trafficInspector.GetGlobalPositionRow(_additionalSphere[i].Row, _spherDataPrefabs.Radius);
+    //                positionSpher.z += _additionalSphere[i].ZPosition;
+    //                Gizmos.DrawSphere(positionSpher, _spherDataPrefabs.Radius);
+    //            }
+    //        }
+    //    }
+    //}
 }

@@ -84,13 +84,11 @@ public class Row : MonoBehaviour
             posSpher.y += _spherDatas[i].Radius;
         }
     }
-    public void AddSpher(List<SpherData> spherDatas)
+    public void AddSpher(SpherData spherData)
     {
-        for (int i = 0; i < spherDatas.Count; i++)
-        {
-            spherDatas[i].RowNumber = RowNumber;
-        }
-        _spherDatas.AddRange(spherDatas);
+        spherData.RowNumber = RowNumber;
+
+        _spherDatas.Add(spherData);
     }
     public void RemoveSpher(SpherData spher)
     {

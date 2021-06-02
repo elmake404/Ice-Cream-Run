@@ -23,11 +23,17 @@ public class SpherMove : MonoBehaviour
     {
         GameStageEvent.WinLevel -= EndGame;
     }
-    void FixedUpdate()
+    void LateUpdate()
     {
-        if (_rbMain.velocity.y > 0 && transform.position.y> _trafficInspector.GetGlobalPositionRow(_spherData.RowNumber,_spherData.Radius).y)
+        if (_spherData.RowNumber != -1 && _trafficInspector.GetIndexSpher(_spherData.RowNumber,_spherData)==0)
         {
-            _rbMain.velocity = Vector3.Slerp(_rbMain.velocity, Vector3.zero, 0.5f);
+            _rbMain.isKinematic = false;
+
+        }
+        else
+        {
+            _rbMain.isKinematic = true;
+
         }
     }
     private void EndGame()

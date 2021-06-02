@@ -35,8 +35,8 @@ public class SpherData : MonoBehaviour
     public float Radius
 
     { get { return _objSpher.transform.localScale.x / 2; } }
-    [HideInInspector]
-    public int RowNumber;
+    //[HideInInspector]
+    public int RowNumber = -1;
     public bool IsRow
     { get { return TrafficInspector.Instance.ContainsRow(this) && TrafficInspector.Instance.RowIsOnTheGround(RowNumber); } }
 
@@ -74,7 +74,7 @@ public class SpherData : MonoBehaviour
         {
             _massChanger = null;
             _steem.Stop();
-            if(_gameOver!=null)
+            if (_gameOver != null)
             {
                 StopCoroutine(_gameOver);
                 _gameOver = null;
@@ -93,7 +93,7 @@ public class SpherData : MonoBehaviour
         {
             _objSpher.transform.localScale = Vector3.one * _radiusData.Min;
 
-            if (_gameOver==null)
+            if (_gameOver == null)
             {
                 _gameOver = GameOver();
                 StartCoroutine(_gameOver);
@@ -101,7 +101,7 @@ public class SpherData : MonoBehaviour
         }
         _colliderMain.radius = Radius;
         float Size = Radius * 2;
-        _additionalСollider.size= new Vector3(Size + _additionalRadius, Size, Size + _additionalRadius);
+        _additionalСollider.size = new Vector3(Size + _additionalRadius, Size, Size + _additionalRadius);
         TrafficInspector.Instance.UpdateRowPosition(RowNumber);
     }
     private IEnumerator GameOver()

@@ -18,6 +18,8 @@ public class ModelSpher : MonoBehaviour
 
     [SerializeField]
     private float _speedRotation;
+    [SerializeField]
+    private int _colorNamber;
     private void Start()
     {
         for (int i = 0; i < _topings.Count; i++)
@@ -25,6 +27,7 @@ public class ModelSpher : MonoBehaviour
             _topings[i].Initialization(_spherData);
             _topingsDictionary[_topings[i].TopingType] = _topings[i];
         }
+        СhooseСolor(_colorNamber);
     }
     private void FixedUpdate()
     {

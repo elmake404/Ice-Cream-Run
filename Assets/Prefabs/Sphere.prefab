@@ -78,6 +78,7 @@ MonoBehaviour:
   _activeModel: {fileID: 451560648604561128}
   _brokenModel: {fileID: 8249346403171787261}
   _speedRotation: 6
+  _colorNamber: 3
 --- !u!1 &5994143101014288406
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +198,7 @@ MonoBehaviour:
     Max: 1
   _lifeTimeOnFire: 0.72
   _additionalRadius: 0.3
-  RowNumber: 0
+  RowNumber: -1
 --- !u!114 &2766662315674648649
 MonoBehaviour:
   m_ObjectHideFlags: 0
