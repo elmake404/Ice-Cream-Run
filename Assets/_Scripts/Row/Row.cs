@@ -7,8 +7,14 @@ public class Row : MonoBehaviour
     private List<SpherData> _spherDatas = new List<SpherData>();
     private List<GameObject> _ethers = new List<GameObject>();
     public bool IsOnGround { get { return _ethers.Count > 0; } }
+    public bool IsOnReiki { get; private set; }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "Reiki")
+        {
+            IsOnReiki = true;
+        }
+
         if (other.gameObject.layer == 8)
         {
             if (!_ethers.Contains(other.gameObject)) _ethers.Add(other.gameObject);
@@ -16,6 +22,11 @@ public class Row : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        if (other.tag == "Reiki")
+        {
+            IsOnReiki = false;
+        }
+
         if (_ethers.Contains(other.gameObject))
         {
             _ethers.Remove(other.gameObject);

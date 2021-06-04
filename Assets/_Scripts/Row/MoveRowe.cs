@@ -56,12 +56,16 @@ public class MoveRowe : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (PossibleToRun())
+        if (GameStage.IsGameFlowe)
         {
             Vector3 PosX = transform.position;
+
             PosX.x = CheckLimmit(_targetPosPlayer);
-            transform.position = Vector3.MoveTowards(transform.position, PosX, _lateralSpeed);
-            transform.Translate(Vector3.forward * _runningSpeed);
+            if (!TrafficInspector.Instance.RowIsOnTheReiki(1))
+                transform.position = Vector3.MoveTowards(transform.position, PosX, _lateralSpeed);
+
+            if (TrafficInspector.Instance.RowIsOnTheGround(1))
+                transform.Translate(Vector3.forward * _runningSpeed);
         }
     }
     private float CheckLimmit(Vector3 target)
@@ -76,7 +80,7 @@ public class MoveRowe : MonoBehaviour
         }
         return target.x;
     }
-    private bool PossibleToRun() => GameStage.IsGameFlowe && TrafficInspector.Instance.RowIsOnTheGround(1);
+    //private bool PossibleToRun() => GameStage.IsGameFlowe && TrafficInspector.Instance.RowIsOnTheGround(1);
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;

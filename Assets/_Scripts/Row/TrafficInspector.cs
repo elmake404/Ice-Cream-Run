@@ -112,6 +112,8 @@ public class TrafficInspector : MonoBehaviour
     }
     public bool RowIsOnTheGround(int number)
         => _rows[number].IsOnGround;
+    public bool RowIsOnTheReiki(int number)
+        => _rows[number].IsOnReiki;
     public bool CheckRow(int row)
     {
         return row >= 0 && row < _rows.Count;

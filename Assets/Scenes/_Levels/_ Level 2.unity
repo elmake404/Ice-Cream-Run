@@ -2440,7 +2440,7 @@ PrefabInstance:
     - target: {fileID: 553747649241752565, guid: a51532ae4468ba8439b0599c1f04927f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 553747649241752565, guid: a51532ae4468ba8439b0599c1f04927f,
         type: 3}
@@ -2774,9 +2774,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c87169e2e4a4e0459a3a5ba85e3cd2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _horizontalLimit: 0
-  _runningSpeed: 0
-  _lateralSpeed: 0
+  _horizontalLimit: 5
+  _runningSpeed: 0.1
+  _lateralSpeed: 6
 --- !u!4 &1404583552
 Transform:
   m_ObjectHideFlags: 0
@@ -2785,7 +2785,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404583550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3.6083326}
+  m_LocalPosition: {x: 0, y: 0.05, z: -3.6083326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1533160179}
@@ -3001,7 +3001,7 @@ Transform:
   - {fileID: 990600204}
   - {fileID: 610027265}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1587726059
 PrefabInstance:
@@ -3692,7 +3692,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1973799393
 PrefabInstance:
@@ -3922,32 +3922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startSpawn:
-    Count: 
-  _additionalSphere:
-  - Row: 1
-    NumberColor: 0
-    ZPosition: 10
-  - Row: 2
-    NumberColor: 1
-    ZPosition: 10
-  - Row: 0
-    NumberColor: 2
-    ZPosition: 10
-  - Row: 1
-    NumberColor: 3
-    ZPosition: 11.7
-  - Row: 2
-    NumberColor: 4
-    ZPosition: 45
-  - Row: 1
-    NumberColor: 5
-    ZPosition: 91.8
-  - Row: 0
-    NumberColor: 1
-    ZPosition: 63.8
-  - Row: 0
-    NumberColor: 1
-    ZPosition: 84.6
+    Count: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   _spherDataPrefabs: {fileID: 7073913076210850574, guid: 0f9beb60d488f794887479e0232901ea,
     type: 3}
   _trafficInspector: {fileID: 1940933769}
@@ -4200,7 +4175,7 @@ PrefabInstance:
     - target: {fileID: 3477491890344807205, guid: 73d718f9bc791914ebc4e23c44296df6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3477491890344807205, guid: 73d718f9bc791914ebc4e23c44296df6,
         type: 3}

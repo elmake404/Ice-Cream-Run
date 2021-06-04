@@ -10,6 +10,8 @@ public class SpherMove : MonoBehaviour
     private Rigidbody _rbMain;
     [SerializeField]
     private float _speedHorn;
+    public bool IsOnReiki { get; private set; }
+
     void Awake()
     {
         _spherData = GetComponent<SpherData>();
@@ -23,27 +25,28 @@ public class SpherMove : MonoBehaviour
     {
         GameStageEvent.WinLevel -= EndGame;
     }
-    void LateUpdate()
+    void FixedUpdate()
     {
-        if (_spherData.RowNumber != -1 && _trafficInspector.GetIndexSpher(_spherData.RowNumber,_spherData)==0)
+        if(GameStage.IsGameFlowe)
+        if ((_spherData.RowNumber != -1 )&& _trafficInspector.GetIndexSpher(_spherData.RowNumber, _spherData) == 0)
         {
             _rbMain.isKinematic = false;
-
         }
         else
         {
             _rbMain.isKinematic = true;
-
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+    }
+    private void OnTriggerExit(Collider other)
+    {
     }
     private void EndGame()
     {
         GameStageEvent.WinLevel -= EndGame;
 
-        if (_rbMain==null)
-        {
-            Debug.Log(transform.position);
-        }
         _rbMain.isKinematic = true;
     }
     private IEnumerator MoveToHorn(Transform Target)
