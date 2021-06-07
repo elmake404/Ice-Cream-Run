@@ -85,6 +85,12 @@ public class TrafficInspector : MonoBehaviour
     public Vector3 GetGlobalPositionRow(int rowNumber, float radius)
      => _rows[rowNumber].transform.TransformPoint(_rows[rowNumber].GetLocalPosition(radius));
     public SpherData GetFirstSphereOfRow(int rowNumber) => _rows[rowNumber].GetFirstSphere();
+    public SpherData GetNextSphereOfRow( SpherData spher)
+    {
+        int namberspher = _rows[spher.RowNumber].IndexOf(spher)+1 ;
+        return _rows[spher.RowNumber].GetSphere(namberspher);
+    }
+
     public SpherData GetAdditionalSphere(GameObject sphere)
     {
         for (int i = 0; i < _additionalSphere.Count; i++)

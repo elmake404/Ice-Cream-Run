@@ -79,6 +79,7 @@ public class Row : MonoBehaviour
         return sphers;
     }
     public SpherData GetFirstSphere() => _spherDatas.Count > 0 ? _spherDatas[0] : null;
+    public SpherData GetSphere(int namberSpher) => _spherDatas.Count > namberSpher ? _spherDatas[namberSpher] : null;
     public int GetCountSpher()
         => _spherDatas.Count;
     public int IndexOf(SpherData spher) => _spherDatas.IndexOf(spher);

@@ -81,13 +81,17 @@ public class SpherData : MonoBehaviour
             }
         }
     }
-    private void ChangeOfSize(float addedSize)
+    public void ChangeOfSize(float addedSize)
     {
         _objSpher.transform.localScale += Vector3.one * addedSize;
 
         if (_objSpher.transform.localScale.x > _radiusData.Max)
         {
+           SpherData spher =   TrafficInspector.Instance.GetNextSphereOfRow(this);
+            if (spher != null) spher.ChangeOfSize(addedSize);
+
             _objSpher.transform.localScale = Vector3.one * _radiusData.Max;
+
         }
         else if (_objSpher.transform.localScale.x < _radiusData.Min)
         {
