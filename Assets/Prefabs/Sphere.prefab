@@ -196,7 +196,7 @@ MonoBehaviour:
   _radiusData:
     Min: 0.75
     Max: 1
-  _lifeTimeOnFire: 0.72
+  _lifeTimeOnFire: 0.2
   _additionalRadius: 0.3
   RowNumber: -1
 --- !u!114 &2766662315674648649
