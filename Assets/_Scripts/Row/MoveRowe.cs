@@ -61,7 +61,7 @@ public class MoveRowe : MonoBehaviour
             Vector3 PosX = transform.position;
 
             PosX.x = CheckLimmit(_targetPosPlayer);
-            if (!TrafficInspector.Instance.RowIsOnTheReiki(1))
+            if (!TrafficInspector.Instance.RowIsOnTheReiki(1)/*&& TrafficInspector.Instance.RowIsOnTheGround(1)*/)
                 transform.position = Vector3.MoveTowards(transform.position, PosX, _lateralSpeed);
 
             if (TrafficInspector.Instance.RowIsOnTheGround(1))

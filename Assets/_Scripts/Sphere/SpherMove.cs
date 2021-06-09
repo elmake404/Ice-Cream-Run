@@ -10,7 +10,9 @@ public class SpherMove : MonoBehaviour
     private Rigidbody _rbMain;
     [SerializeField]
     private float _speedHorn;
+    private bool _death;
     public bool IsOnReiki { get; private set; }
+
 
     void Awake()
     {
@@ -27,15 +29,15 @@ public class SpherMove : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if(GameStage.IsGameFlowe)
-        if ((_spherData.RowNumber != -1 )&& _trafficInspector.GetIndexSpher(_spherData.RowNumber, _spherData) == 0)
-        {
-            _rbMain.isKinematic = false;
-        }
-        else
-        {
-            _rbMain.isKinematic = true;
-        }
+        if (GameStage.IsGameFlowe && !_death)
+            if ((_spherData.RowNumber != -1) && _trafficInspector.GetIndexSpher(_spherData.RowNumber, _spherData) == 0)
+            {
+                _rbMain.isKinematic = false;
+            }
+            else
+            {
+                _rbMain.isKinematic = true;
+            }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -54,7 +56,7 @@ public class SpherMove : MonoBehaviour
         float Yoffset = transform.position.y - Target.position.y;
         while (true)
         {
-            transform.position = Vector3.MoveTowards(transform.position,Target.position+Vector3.up*Yoffset,_speedHorn);
+            transform.position = Vector3.MoveTowards(transform.position, Target.position + Vector3.up * Yoffset, _speedHorn);
             yield return new WaitForSeconds(Time.fixedDeltaTime);
         }
     }
@@ -77,7 +79,9 @@ public class SpherMove : MonoBehaviour
     }
     public void RigidbodyConstraintsNone()
     {
+        _death = true;
         _rbMain.constraints = RigidbodyConstraints.None;
+        _rbMain.isKinematic = false;
     }
     public void GoToTheHorn(Transform Target)
     {
