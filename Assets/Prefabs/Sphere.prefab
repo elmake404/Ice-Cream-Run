@@ -195,7 +195,7 @@ MonoBehaviour:
   _spherMove: {fileID: 2766662315674648649}
   _radiusData:
     Min: 0.75
-    Max: 1
+    Max: 1.25
   _lifeTimeOnFire: 0.2
   _additionalRadius: 0.3
   RowNumber: -1
