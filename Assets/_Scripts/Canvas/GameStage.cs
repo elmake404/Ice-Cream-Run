@@ -50,12 +50,13 @@ public class GameStage : MonoBehaviour
         switch (stage)
         {
             case Stage.StartGame:
+                FacebookManager.Instance.GameStart();
                 _canvasManager.GameStageWindow(StageGame);
                 _isGameStart = true;
                 break;
 
             case Stage.StartLevel:
-
+                FacebookManager.Instance.LevelStart(PlayerPrefs.GetInt("Level"));
                 _canvasManager.GameStageWindow(StageGame);
                 GameStageEvent.InvokeStartLevel();
                 IsGameFlowe = true;
@@ -64,6 +65,8 @@ public class GameStage : MonoBehaviour
             case Stage.WinGame:
                 if (IsGameFlowe)
                 {
+                    FacebookManager.Instance.LevelWin(PlayerPrefs.GetInt("Level"));
+
                     _canvasManager.GameStageWindow(StageGame);
                     GameStageEvent.InvokeWinLevel();
 
@@ -78,6 +81,8 @@ public class GameStage : MonoBehaviour
             case Stage.LostGame:
                 if (IsGameFlowe)
                 {
+                    FacebookManager.Instance.LevelFail(PlayerPrefs.GetInt("Level"));
+
                     _canvasManager.GameStageWindow(StageGame);
 
                     IsGameFlowe = false;
